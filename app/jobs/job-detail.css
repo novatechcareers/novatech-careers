@@ -1,0 +1,239 @@
+.foxcareers {
+  background: #f2f3f3;
+  min-height: 100vh;
+  color: #052942;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+/* HEADER */
+.fc-header {
+  background: #07223a;
+  color: #fff;
+  width: 100%;
+  font-size: 17px;
+}
+.fc-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 60px;
+}
+.fc-logo-section {
+  display: flex;
+  align-items: center;
+}
+.fc-logo {
+  height: 38px;
+  margin-right: 12px;
+}
+.fc-careers {
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #b2bbbc;
+}
+.fc-nav {
+  display: flex;
+  gap: 30px;
+}
+.fc-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 4px 0;
+  transition: color 0.18s;
+  letter-spacing: 1px;
+}
+.fc-nav a:hover {
+  color: #17AFE0;
+}
+/* HERO/JUMBOTRON */
+.fc-hero {
+  background: #082b42;
+  position: relative;
+  width: 100%;
+  min-height: 275px;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+.fc-hero-text {
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 60px 75px 30px 75px;
+  z-index: 2;
+  position: relative;
+}
+.fc-hero-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62%;
+  max-width: 800px;
+  height: 100%;
+  object-fit: cover;
+  object-position: top right;
+  border-radius: 0 0 0 200px;
+  z-index: 1;
+  box-shadow: -12px 0 36px -16px #0005;
+}
+/* MAIN */
+.fc-main-bg {
+  background: #f2f3f3;
+  padding-bottom: 64px;
+}
+.fc-main-area {
+  background: #f2f3f3;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.fc-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+}
+.fc-job-title {
+  color: #082b42;
+  font-size: 2.6rem;
+  margin: 0 0 32px 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.fc-metadata {
+  font-size: 1.08rem;
+  color: #12324b;
+  margin-left: 3px;
+}
+.fc-joblogo-img {
+  max-width: 210px;
+  max-height: 65px;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+/* BUTTONS */
+.fc-button-row {
+  display: flex;
+  gap: 36px;
+  margin: 36px 0 24px 0;
+}
+.fc-apply-btn,
+.fc-outline-btn {
+  font-size: 1.14rem;
+  padding: 16px 34px;
+  border-radius: 2px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  min-width: 180px;
+  cursor: pointer;
+  background: #fff;
+  border: 2px solid #d8000c;
+  color: #d8000c;
+  transition: background 0.2s, color 0.2s;
+}
+.fc-apply-btn {
+  background: #d8000c;
+  color: #fff;
+}
+.fc-apply-btn:hover,
+.fc-outline-btn:hover {
+  background: #082b42;
+  color: #fff;
+  border-color: #082b42;
+}
+/* MAIN SECTIONS */
+.fc-section {
+  background: transparent;
+  padding: 24px 0;
+  color: #082b42;
+}
+.fc-section-title {
+  font-size: 1.32rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+  text-decoration: underline;
+  letter-spacing: 1.2px;
+}
+.fc-subsection-title {
+  font-size: 1.08rem;
+  font-weight: 900;
+  margin: 22px 0 8px 0;
+  text-decoration: underline;
+}
+.fc-section ul {
+  margin: 8px 0 16px 18px;
+}
+.fc-section li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.fc-meta {
+  font-size: 1rem;
+  margin-top: 12px;
+  color: #3d4f5c;
+  line-height: 1.5;
+}
+.fc-meta i { color: #555; }
+.fc-meta b { color: #082b42; }
+/* FOOTER */
+.fc-footer {
+  background: #07223a;
+  color: #cacaca;
+  font-size: 1rem;
+  padding: 30px 0 18px 0;
+  margin-top: 45px;
+}
+.fc-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fc-footer-links {
+  margin-top: 6px;
+  font-size: 0.96rem;
+}
+.fc-footer-links a {
+  color: #b2bbbc;
+  text-decoration: none;
+  margin: 0 4px;
+  transition: color 0.2s;
+}
+.fc-footer-links a:hover { color: #fff; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .fc-header-inner, .fc-main-area, .fc-footer-inner {
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+  .fc-hero-text {
+    padding: 40px 10vw 18px 10vw;
+    font-size: 2rem;
+  }
+  .fc-title-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .fc-joblogo-img {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+  .fc-main-bg {
+    padding-bottom: 32px;
+  }
+}
+@media (max-width: 600px) {
+  .fc-header-inner, .fc-main-area, .fc-footer-inner {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  .fc-hero-img { display: none; }
+  .fc-hero-text { padding: 26px 5vw 10px 5vw; }
+}

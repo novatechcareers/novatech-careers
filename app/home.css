@@ -1,0 +1,342 @@
+/* (existing file content kept; added support styles at the end) */
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f3f5f7;
+}
+
+.nova-page{
+  min-height:100vh;
+}
+
+/* TOP */
+.navbar{
+  height:80px;
+  background:white;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  box-shadow:
+    0 2px 20px rgba(0,0,0,.05);
+}
+
+.logo{
+  font-size:32px;
+
+  font-weight:700;
+
+  color:#004b9b;
+}
+
+/* HERO */
+
+.hero{
+  padding:140px 40px;
+  text-align:center;
+  color:white;
+
+  /* keep your existing nova main background, just strengthen overlay */
+  background:
+    linear-gradient(
+      rgba(0,30,80,.72),
+      rgba(0,30,80,.72)
+    ),
+    url("/images/meeting1.jpg");
+  background-size:cover;
+  background-position:center;
+  min-height:520px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.hero h1{
+  font-size:62px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:22px;
+  opacity:.95;
+}
+
+/* JOBS */
+
+.jobs{
+  display:flex;
+  justify-content:center;
+  gap:45px;
+  padding:80px 40px;
+  flex-wrap:wrap;
+}
+
+/* Job card adjustments */
+.job-card{
+  width:420px;
+  background:white;
+  padding:28px;
+  border-radius:18px;
+  border:1px solid #dce3eb;
+  box-shadow:
+    0 8px 40px rgba(0,0,0,.08);
+  transition:.25s;
+  position:relative;
+  overflow:hidden; /* so images and overlays stay clipped */
+}
+
+/* image block at top of card (uses provided photos) */
+.job-image{
+  height:200px;
+  border-radius:12px;
+  background-size:cover;
+  background-position:center;
+  margin-bottom:20px;
+  transition:transform .6s ease, filter .3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* slight zoom on hover for image */
+.job-card:hover .job-image{
+  transform: scale(1.04);
+  filter:brightness(.96);
+}
+
+/* badge overlay (small upper-left ribbon) */
+.job-image::before{
+  content:"";
+  position:absolute;
+  display:block;
+}
+
+/* keep current scaling on hover for card */
+.job-card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 15px 50px rgba(0,0,0,.12);
+}
+
+.job-card h2{
+  color:#111;
+  font-size:28px;
+  margin-bottom:12px;
+}
+
+.job-card p{
+  color:#444;
+  line-height:1.8;
+  font-size:17px;
+  margin-bottom:24px;
+}
+
+/* BUTTON */
+/* older rule kept for compatibility (targets any anchor inside job-card) */
+.job-card a{
+  background:#004b9b;
+  color:white;
+  padding:16px 34px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  display:inline-block;
+}
+
+/* more specific animated button (use this class on Link) */
+.apply-btn{
+  background:#004b9b;
+  color:white;
+  padding:12px 28px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  display:inline-block;
+  transition: transform .22s cubic-bezier(.2,.9,.2,1), box-shadow .22s;
+  box-shadow: 0 6px 18px rgba(0,75,155,0.18);
+  will-change: transform;
+  position:relative;
+  overflow:visible;
+}
+
+/* hover/active effects */
+.apply-btn:hover{
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0,60,125,0.22);
+}
+
+/* small floating/pulse animation to draw attention */
+@keyframes floatPulse {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.01); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* subtle pulse only on load (not while hovering) */
+.apply-btn.pulse{
+  animation: floatPulse 3.8s ease-in-out infinite;
+}
+
+/* small focus ring for accessibility */
+.apply-btn:focus{
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0,75,155,0.12), 0 12px 30px rgba(0,60,125,0.18);
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  padding:40px;
+  font-size:14px;
+  color:#666;
+}
+
+/* SUPPORT (Customer contact) */
+.support{
+  display:flex;
+  justify-content:center;
+  padding:36px 40px 80px;
+}
+
+.support-inner{
+  max-width:980px;
+  width:100%;
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  justify-content:center;
+}
+
+.support-card{
+  background:#fff;
+  border-radius:12px;
+  padding:20px 22px;
+  border:1px solid #e1e8f0;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  min-width:300px;
+  flex:1 1 300px;
+}
+
+.support-card h3{
+  margin:0 0 10px;
+  font-size:20px;
+  color:#073764;
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:8px;
+  font-size:16px;
+  color:#333;
+}
+
+.contact-icon{
+  width:36px;
+  height:36px;
+  border-radius:8px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#f3f6fb;
+  color:#004b9b;
+  font-weight:700;
+  flex-shrink:0;
+  box-shadow: 0 4px 12px rgba(0,75,155,0.06);
+}
+
+.contact-link{
+  color:#004b9b;
+  text-decoration:none;
+  font-weight:700;
+  background:transparent;
+  border-radius:8px;
+  padding:6px 8px;
+  transition: background .18s, transform .12s;
+}
+
+.contact-row{
+
+display:flex;
+
+gap:18px;
+
+justify-content:center;
+
+margin-top:20px;
+
+}
+
+.contact-icon{
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:28px;
+
+color:white;
+
+text-decoration:none;
+
+transition:.25s;
+
+}
+
+.contact-icon:hover{
+
+transform:scale(1.08);
+
+}
+
+.email{
+
+background:#0056a4;
+
+}
+
+.whatsapp{
+
+background:#25D366;
+
+}
+.contact-link:hover{
+  background:rgba(0,75,155,0.06);
+  transform:translateY(-2px);
+}
+
+/* visually muted placeholder note */
+.contact-note{
+  margin-top:10px;
+  font-size:13px;
+  color:#6b7280;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .job-card{
+    width:100%;
+    max-width:600px;
+  }
+  .hero{
+    padding:100px 20px;
+  }
+  .hero h1{
+    font-size:44px;
+  }
+  .support-inner{
+    flex-direction:column;
+    align-items:stretch;
+  }
+}

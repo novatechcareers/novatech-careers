@@ -1,0 +1,300 @@
+/* job-detail.css
+   Tokens adjusted to match Site.css (colors, font-family, spacing),
+   while preserving layout and responsive behavior.
+*/
+
+:root{
+  --primary:#00263E;   /* from Site.css */
+  --accent:#D2232A;    /* from Site.css */
+  --muted:#939393;
+  --bg:#f2f3f3;
+  --surface:#ffffff;
+  --max-width:1200px;
+  --font-family: "urw-din", sans-serif;
+}
+
+.foxcareers {
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--primary);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height:1.5;
+}
+
+/* HEADER */
+.fc-header {
+  background: var(--primary);
+  color: #fff;
+  width: 100%;
+  font-size: 16px;
+}
+.fc-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 60px;
+}
+.fc-logo-section {
+  display: flex;
+  align-items: center;
+}
+.fc-logo {
+  height: 38px;
+  margin-right: 12px;
+}
+.fc-careers {
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: #bfcbd6;
+}
+.fc-nav {
+  display: flex;
+  gap: 24px;
+}
+.fc-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 6px 0;
+  transition: color 0.18s;
+  letter-spacing: 0.6px;
+  font-size: 14px;
+}
+.fc-nav a:hover { color: #cfeaf7; }
+
+/* HERO/JUMBOTRON */
+/* stretched down a bit (increased min-height) so hero appears taller */
+/* changed to use exact primary color so hero and footer/header match */
+.fc-hero {
+  background: var(--primary);
+  position: relative;
+  width: 100%;
+  min-height: 340px; /* kept increased height */
+  margin-bottom: 28px;
+  overflow: hidden;
+  color: #fff;
+  overflow: hidden;
+}
+.fc-hero-text {
+  color: #fff;
+  font-size: 2.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 56px 48px 32px 48px; /* slightly more top padding to center text vertically with larger hero */
+  z-index: 2;
+  position: relative;
+}
+.fc-hero-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62%;
+  max-width: 900px;
+  height: 100%;
+  object-fit: cover;
+  object-position: top right;
+  border-radius: 0 0 0 200px;
+  z-index: 1;
+  box-shadow: -12px 0 36px -16px rgba(0,0,0,0.2);
+  opacity: 0.95;
+  max-width:100%;
+  display:block;
+}
+
+/* MAIN */
+.fc-main-bg {
+  background: var(--bg);
+  padding-bottom: 56px;
+}
+.fc-main-area {
+  background: transparent;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Title row */
+.fc-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 8px;
+}
+.fc-job-title {
+  color: var(--primary);
+  font-size: 2.4rem;
+  margin: 0 0 18px 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.fc-metadata {
+  font-size: 15px;
+  color: #12324b;
+  margin-left: 3px;
+}
+/* Increased brand logo size so it reads larger in title row */
+.fc-joblogo-img {
+  max-width: 240px; /* increased from 190px */
+  max-height: 90px; /* increased from 65px */
+  margin-top: 8px;
+  height: auto;
+  width: auto;
+}
+
+/* Buttons */
+.fc-button-row {
+  display: flex;
+  gap: 16px;
+  margin: 22px 0;
+  align-items: center;
+}
+.fc-apply-btn,
+.fc-outline-btn {
+  font-size: 0.96rem;
+  padding: 12px 26px;
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  min-width: 160px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration:none;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+  border: 2px solid var(--accent);
+}
+.fc-apply-btn {
+  background: var(--accent);
+  color: #fff;
+}
+.fc-outline-btn {
+  background: transparent;
+  color: var(--accent);
+}
+.fc-apply-btn:hover,
+.fc-outline-btn:hover {
+  transform: translateY(-3px);
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Sections */
+.fc-section {
+  background: transparent;
+  padding: 18px 0;
+  color: var(--primary);
+}
+.fc-section-title {
+  font-size: 1.18rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--primary);
+  text-decoration: underline;
+}
+.fc-subsection-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 18px 0 8px 0;
+  color: var(--primary);
+}
+/* Ensure lists display standard bullets (override other global list resets) */
+.fc-section ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin: 8px 0 16px 1.25rem; /* push bullets in from left */
+  padding-left: 0;
+}
+.fc-section ul li {
+  font-size: 15px;
+  margin-bottom: 10px;
+  /* ensure bullets are visible even if other rules try to hide markers */
+  display: list-item;
+}
+
+/* Meta / small text */
+.fc-meta {
+  font-size: 0.95rem;
+  margin-top: 12px;
+  color: #3d4f5c;
+  line-height: 1.6;
+}
+.fc-meta i { color: #555; }
+.fc-meta b { color: var(--primary); }
+
+/* Footer */
+.fc-footer {
+  background: var(--primary);
+  color: #d0d6db;
+  font-size: 0.95rem;
+  padding: 26px 0 18px 0;
+  margin-top: 36px;
+}
+.fc-footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fc-footer-links {
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+.fc-footer-links a {
+  color: #c7d4df;
+  text-decoration: none;
+  margin: 0 6px;
+}
+.fc-footer-links a:hover { color: #fff; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .fc-header-inner, .fc-main-area, .fc-footer-inner {
+    padding-inline:20px;
+    max-width:100%;
+    overflow:hidden;
+  }
+  .fc-hero-text {
+    padding: 28px 8vw 18px 8vw;
+    font-size: 1.8rem;
+  }
+  .fc-hero-img{
+    position:static;
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    object-fit:cover;
+    border-radius:18px;
+    margin-top:20px;
+    box-shadow:none;
+  }
+  .fc-title-row { flex-direction: column; gap: 12px; }
+  .fc-joblogo-img { margin-top: 6px; align-self: flex-start; max-width: 220px; max-height: 80px; }
+}
+@media (max-width: 600px) {
+  .fc-hero{
+    min-height:auto;
+    padding-bottom:20px;
+  }
+  .fc-header-inner, .fc-main-area, .fc-footer-inner {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  .fc-hero-text { padding: 18px 4vw 12px 4vw; font-size: 1.5rem; }
+  .fc-job-title { font-size: 1.6rem; }
+  .fc-button-row { flex-direction: column; gap: 12px; align-items: stretch; }
+  .fc-apply-btn, .fc-outline-btn { width: 100%; justify-content: center; }
+}
+
+/* small utility */
+.section-muted { color: var(--muted); font-size: 0.95rem; }
