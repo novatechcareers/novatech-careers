@@ -314,13 +314,155 @@ Back
 
 <button
 type="button"
-onClick={() => {
-  alert("BUTTON WORKS");
+onClick={async () => {
+  const info = JSON.parse(localStorage.getItem("applicantInfo") || "{}");
+  const exp = JSON.parse(localStorage.getItem("experienceData") || "{}");
+  const questions = JSON.parse(localStorage.getItem("questionData") || "{}");
+if (
+  !info.firstName ||
+  !exp.company ||
+  !questions.authorized
+) {
+  alert("Application data is missing. Please go back and complete all sections again.");
+  return;
+}
+const currentUser =
+localStorage.getItem("currentUser")?.trim().toLowerCase();
+
+const existingApps =
+JSON.parse(
+localStorage.getItem("applications") || "[]"
+);
+
+const newApplication = {
+
+id: Date.now(),
+
+name:
+`${info.firstName} ${info.lastName}`,
+
+role:
+localStorage.getItem("selectedJob") ||
+"Unknown Role",
+
+status:"Pending",
+
+email: currentUser,
+
+submittedAt: new Date().toLocaleString(),
+
+phone: info.phone,
+
+city: info.city,
+
+country: info.country,
+
+address: info.address,
+
+state: info.state,
+
+postalCode: info.postalCode,
+
+governmentIdType:
+info.governmentIdType,
+
+governmentIdName:
+info.governmentIdName,
+
+governmentIdFile:
+info.governmentIdFile,
+
+company:
+exp.company,
+
+education:
+exp.education,
+
+years:
+exp.years,
+
+skills: exp.skills,
+
+experienceText:
+exp.experienceText,
+
+resumeName:
+exp.resumeName,
+
+resumeFile:
+exp.resumeFile,
+
+authorized:
+questions.authorized,
+
+relocate:
+questions.relocate,
+
+
+};
+
+existingApps.push(newApplication);
+localStorage.setItem("applications", JSON.stringify(existingApps));
+
+const { error } =
+await supabase
+.from("applications")
+.insert([
+newApplication
+]);
+
+console.log(
+"SUPABASE ERROR:",
+error
+);
+
+if(error){
+
+window.alert(
+error.message
+);
+
+return;
+
+}
+
+/* KEEP USER LOGGED IN */
+
+localStorage.setItem(
+"isLoggedIn",
+"true"
+);
+
+/* REMOVE FORM DATA ONLY */
+
+localStorage.removeItem(
+"applicantInfo"
+);
+
+localStorage.removeItem(
+"experienceData"
+);
+
+localStorage.removeItem(
+"questionData"
+);
+
+
+setTimeout(()=>{
+setModalTitle("Application Submitted");
+setModalMessage("Your application was submitted successfully. You will be redirected shortly.");
+setModalType("success");
+setModalOpen(true);
+setTimeout(()=>window.location.href="/application-status", 1000);
+},300);
+
 }}
+
 className="workday-btn"
 >
 Submit Application
 </button>
+
 </div>
 
 </div>
