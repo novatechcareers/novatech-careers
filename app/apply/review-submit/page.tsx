@@ -290,8 +290,10 @@ Questions
 <div
 style={{
 display:"flex",
-justifyContent:"space-between",
-marginTop:"40px"
+flexDirection:"column",
+gap:"15px",
+marginTop:"40px",
+alignItems:"center"
 }}
 >
 
@@ -311,146 +313,14 @@ Back
 
 
 <button
-
-onClick={async () => {
-
-const currentUser =
-localStorage.getItem("currentUser")?.trim().toLowerCase();
-
-const existingApps =
-JSON.parse(
-localStorage.getItem("applications") || "[]"
-);
-
-const newApplication = {
-
-id: Date.now(),
-
-name:
-`${info.firstName} ${info.lastName}`,
-
-role:
-localStorage.getItem("selectedJob") ||
-"Unknown Role",
-
-status:"Pending",
-
-email: currentUser,
-
-submittedAt: new Date().toLocaleString(),
-
-phone: info.phone,
-
-city: info.city,
-
-country: info.country,
-
-address: info.address,
-
-state: info.state,
-
-postalCode: info.postalCode,
-
-governmentIdType:
-info.governmentIdType,
-
-governmentIdName:
-info.governmentIdName,
-
-governmentIdFile:
-info.governmentIdFile,
-
-company:
-exp.company,
-
-education:
-exp.education,
-
-years:
-exp.years,
-
-skills: exp.skills,
-
-experienceText:
-exp.experienceText,
-
-resumeName:
-exp.resumeName,
-
-resumeFile:
-exp.resumeFile,
-
-authorized:
-questions.authorized,
-
-relocate:
-questions.relocate,
-
-
-};
-
-existingApps.push(newApplication);
-localStorage.setItem("applications", JSON.stringify(existingApps));
-
-const { error } =
-await supabase
-.from("applications")
-.insert([
-newApplication
-]);
-
-console.log(
-"SUPABASE ERROR:",
-error
-);
-
-if(error){
-
-window.alert(
-error.message
-);
-
-return;
-
-}
-
-/* KEEP USER LOGGED IN */
-
-localStorage.setItem(
-"isLoggedIn",
-"true"
-);
-
-/* REMOVE FORM DATA ONLY */
-
-localStorage.removeItem(
-"applicantInfo"
-);
-
-localStorage.removeItem(
-"experienceData"
-);
-
-localStorage.removeItem(
-"questionData"
-);
-
-
-setTimeout(()=>{
-setModalTitle("Application Submitted");
-setModalMessage("Your application was submitted successfully. You will be redirected shortly.");
-setModalType("success");
-setModalOpen(true);
-setTimeout(()=>window.location.href="/application-status", 1000);
-},300);
-
+type="button"
+onClick={() => {
+  alert("BUTTON WORKS");
 }}
-
 className="workday-btn"
 >
 Submit Application
 </button>
-
 </div>
 
 </div>

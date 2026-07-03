@@ -39,21 +39,14 @@ async ()=>{
 try{
 
 const {
+  data,
+  error
+} = await supabase
+  .from("applications")
+  .select("*");
 
-data,
-error
-
-}
-
-=
-
-await supabase
-
-.from(
-"applications"
-)
-
-.select("*");
+console.log("SUPABASE DATA:", data);
+console.log("SUPABASE ERROR:", error);
 
 if(error){
 
