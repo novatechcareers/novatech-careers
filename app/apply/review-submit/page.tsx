@@ -315,6 +315,9 @@ Back
 <button
 type="button"
 onClick={async () => {
+  try {
+
+    alert("step 1")
   const info = JSON.parse(localStorage.getItem("applicantInfo") || "{}");
   const exp = JSON.parse(localStorage.getItem("experienceData") || "{}");
   const questions = JSON.parse(localStorage.getItem("questionData") || "{}");
@@ -456,12 +459,17 @@ setModalOpen(true);
 setTimeout(()=>window.location.href="/application-status", 1000);
 },300);
 
+  } catch (err) {
+    console.error(err);
+    alert("ERROR: " + String(err));
+  }
 }}
 
 className="workday-btn"
 >
 Submit Application
 </button>
+
 
 </div>
 
