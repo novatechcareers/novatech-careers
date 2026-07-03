@@ -238,7 +238,7 @@ Other Government ID
 
 <label className="workday-label">
 
-Upload ID
+Upload ID | PDF or JPG
 
 <input
 

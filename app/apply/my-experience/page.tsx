@@ -243,7 +243,7 @@ className="workday-input"
 
 <label className="workday-label">
 
-Resume Upload*
+Resume Upload* | DOCX or PDF
 
 <div
 style={{
