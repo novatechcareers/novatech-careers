@@ -36,17 +36,6 @@ return;
 
 const loadApplicants =
 async ()=>{
-
-const savedApps = JSON.parse(
-localStorage.getItem("applications") || "[]"
-);
-
-const localApplicants = Array.isArray(savedApps) ? savedApps : [];
-
-if(localApplicants.length > 0){
-setApplicants(localApplicants);
-}
-
 try{
 
 const {
@@ -75,20 +64,8 @@ return;
 }
 
 const remoteApplicants = Array.isArray(data) ? data : [];
-const mergedApplicants = [...localApplicants, ...remoteApplicants].filter(
-(applicant, index, array) =>
-index === array.findIndex((item) =>
-String(item.id) === String(applicant.id)
-|| (
-String(item.email || "") === String(applicant.email || "") &&
-String(item.role || "") === String(applicant.role || "") &&
-String(item.name || "") === String(applicant.name || "")
-)
-)
-);
 
-setApplicants(mergedApplicants);
-localStorage.setItem("applications", JSON.stringify(mergedApplicants));
+setApplicants(remoteApplicants);
 
 }catch(err){
 console.error("Admin applicant load failed:", err);
@@ -121,10 +98,6 @@ applicant.id === id
 
 setApplicants(updated);
 
-localStorage.setItem(
-"applications",
-JSON.stringify(updated)
-);
 
 const { error } = await supabase
 .from("applications")
@@ -145,10 +118,6 @@ applicants.filter(app => app.id !== id);
 
 setApplicants(updated);
 
-localStorage.setItem(
-"applications",
-JSON.stringify(updated)
-);
 
 const { error } = await supabase
 .from("applications")
