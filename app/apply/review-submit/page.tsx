@@ -10,6 +10,8 @@ export default function ReviewSubmit(){
 const [job,setJob] = useState("");
 
 useEffect(()=>{
+  const storedJob = localStorage.getItem("selectedJob") || "";
+  setJob(storedJob);
 
 const loadStatus =
 async ()=>{
@@ -316,8 +318,6 @@ Back
 type="button"
 onClick={async () => {
   try {
-
-    alert("step 1")
   const info = JSON.parse(localStorage.getItem("applicantInfo") || "{}");
   const exp = JSON.parse(localStorage.getItem("experienceData") || "{}");
   const questions = JSON.parse(localStorage.getItem("questionData") || "{}");
