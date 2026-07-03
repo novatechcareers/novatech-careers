@@ -1,10 +1,10 @@
 "use client";
 import "../../workday.css";
 import FeedbackModal from "../../components/feedback-modal";
-import { useState, useEffect  } from "react";
+import { useState, useEffect, Suspense  } from "react";
 import { useRouter, useSearchParams  } from "next/navigation";
 
-export default function CreateAccount(){
+function CreateAccountContent(){
 const [job,setJob] = useState("");
 
 useEffect(()=>{
@@ -234,4 +234,12 @@ onClose={() => setModalOpen(false)}
 </div>
 
 )
+}
+
+export default function CreateAccount() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CreateAccountContent />
+    </Suspense>
+  );
 }
